@@ -1,20 +1,21 @@
-import { Heart, HomeIcon } from "lucide-react"
+import { ForkKnifeCrossedIcon, Heart, HomeIcon } from "lucide-react"
 import { Link } from "react-router-dom"
+import RecipeCategory from "./RecipeCategory"
 
-const Sidebar = () => {
+const Sidebar = ({ fetchRecipes }) => {
   return (
     <div>
-    <DesktopSidebar />
-    <MobileSidebar />       
+      <DesktopSidebar fetchRecipes={fetchRecipes} />
+      <MobileSidebar />
     </div>
-  )
-}
+  );
+};
 
 export default Sidebar
 
-const DesktopSidebar = () => {
+const DesktopSidebar = ({ fetchRecipes }) => {
   return (
-      <div className="p-3 md:p-10 border-r min-h-screen w-24 md:w-64 hidden sm:block">
+      <div className="pl-3 md:p-10  border-r min-h-screen w-28 md:w-64 hidden sm:block ">
       <div className="flex flex-col gap-16 left-0 top-10 sticky">
         
         <div className='w-full flex justify-center'>
@@ -29,12 +30,19 @@ const DesktopSidebar = () => {
             <span className="font-bold hidden md:block">Home</span>
           </Link>
 
+          <Link to={"/Home"} className="flex gap-1">
+            <ForkKnifeCrossedIcon size={24}  className="hover:fill-orange-500" />
+            <span className="font-bold hidden md:block">Recipes</span>
+          </Link>
+
           <Link to={"/Favorites"} className="flex gap-1">
             <Heart size={24}  className="hover:fill-red-500" />
             <span className="font-bold hidden md:block">Favorites</span>
           </Link>
 
-               </ul>
+        </ul>
+        
+         <RecipeCategory fetchRecipes={fetchRecipes} />
           </div>
           
           
@@ -49,11 +57,14 @@ const MobileSidebar = () => {
      <Link to={"/Home"}>
         <HomeIcon size={24} className="cursor-pointer" />
       </Link>  
+      <Link to={"/Home"} className="flex gap-1">
+            <ForkKnifeCrossedIcon size={24}  className="hover:fill-orange-500" />
+      </Link>
       <Link to={"/Favorites"}>
         <Heart size={24} className="cursor-pointer" />
         </Link>
 
-          
+        
     </div>
   )
 }

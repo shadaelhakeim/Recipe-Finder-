@@ -1,22 +1,27 @@
 // import ThemeCustomize from "./components/themeCustomize"
-import Sidebar from "./components/sidebar"
 import Home from "./components/HomePage"
 import FavoritesPage from "./components/FavoritesPage"
 import { Routes, Route } from "react-router-dom"
+import Footer from "./components/Footer"
+import RecipeDetails from "./components/RecipeDetails";
+
 function App() {
 
 
-
   return (
-    <div className="flex">
+    <>
+      <div >
       
-      <Sidebar />
       <Routes>
         <Route path="/Home" element={<Home />} />
-        <Route path="/Favorites" element={<FavoritesPage />} />
+          <Route path="/Favorites" element={<FavoritesPage />} />
+          <Route path="/recipe/:id" element={<RecipeDetails />} /> 
+        
       </Routes>
       {/* <ThemeCustomize /> */}
-   </div>
+      </div>
+      <Footer />
+      </>
   )
 
 }
