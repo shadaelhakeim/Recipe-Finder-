@@ -30,7 +30,7 @@ const RecipeDetails = () => {
     fetchRecipe();
   }, [id]);
 
-  if (loading) return <span className="loading loading-dots loading-lg absolute top-2/4 left-2/4 bg-yellow-400 "></span>;
+  if (loading) return <span className="loading loading-dots loading-lg absolute top-2/4 left-2/4 bg-yellow-400 "></span>; // to handle loading before showing recipes
   if (!recipe) return <p className='absolute top-2/4 left-2/4 text-lg'>Recipe not found</p>;
 
     return (

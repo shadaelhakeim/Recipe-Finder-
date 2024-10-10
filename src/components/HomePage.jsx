@@ -21,23 +21,21 @@ const HomePage = () => {
     });
   }, []);
 
-  // Helper function to handle circular index values
+  // handle circular index values
   const getIndex = (index) => {
     if (index < 0) {
-      return images.length - 1; // Loop back to last image
+      return images.length - 1; //  back to last image
     }
     if (index >= images.length) {
-      return 0; // Loop back to first image
+      return 0; //  back to first image
     }
     return index;
   };
 
-  // Function to go to the next image
   const handleNext = () => {
     setActiveIndex((prevIndex) => getIndex(prevIndex + 1));
   };
 
-  // Function to go to the previous image
   const handlePrev = () => {
     setActiveIndex((prevIndex) => getIndex(prevIndex - 1));
   };
@@ -47,28 +45,24 @@ const HomePage = () => {
       <Header />
       <div className='mainbg h-[80vh] lg:h-[130vh] overflow-hidden relative'>
         <div className='content-home flex absolute w-max h-full justify-start items-center  top-[-10%] left-[1%] lg:top-[-6%] lg-left-[0] '>
-          {/* Previous Image */}
+
           <div className='imgs text-center rotate-45'>
             <img src={images[getIndex(activeIndex - 1)]} className='imgh w-[90%]' alt="Recipe" />
           </div>
 
-          {/* Active Middle Image */}
           <div className='imgs text-center rotate-45'>
             <img src={images[activeIndex]} className='imgh w-[90%]' alt="Recipe" />
           </div>
 
-          {/* Next Image */}
           <div className='imgs text-center rotate-45'>
             <img src={images[getIndex(activeIndex + 1)]} className='imgh w-[90%]' alt="Recipe" />
           </div>
         </div>
 
-        {/* Circle Text */}
         <div className='circle absolute top-[-23%;] lg:top-[-9rem] left-0 w-full h-[125%] lg:h-[121%]' ref={circleRef}>
           Cookie Recipes-Discover, Cook, Share- Your Culinary Adventure Starts Here!
         </div>
 
-        {/* Carousel Navigation */}
         <div className='absolute bottom-[15%] md:bottom-[10%] lg:bottom-[9%] left-2/4 -translate-x-1/2 text-center text-white w-max'>
           <p className='text-left uppercase translate-y-5'>Cookie's</p>
           <p className='sec-content text-7xl uppercase font-bold relative'>Recipes</p>

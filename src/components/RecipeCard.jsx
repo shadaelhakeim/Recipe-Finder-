@@ -2,6 +2,7 @@ import { Heart, HeartPulse, LucideListFilter, Soup } from "lucide-react"
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 
+//to return first two values from health labels
 const getTwoValuesFromArray = (arr) => {
 	return [arr[0], arr[1]];
 }; 
@@ -11,6 +12,7 @@ const RecipeCard = ({ recipe, bg, bgtype , badge }) => {
   const recipeId = encodeURIComponent(recipe.uri.split("_")[1]);
   const [isFavorite, setIsFavorite] = useState(localStorage.getItem("favorites")?.includes(recipe.label));
 
+  //to handle add to favorite function
 const addRecipeToFavorites = () => {
 		let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 		const isRecipeAlreadyInFavorites = favorites.some((fav) => fav.label === recipe.label);
@@ -42,7 +44,7 @@ const addRecipeToFavorites = () => {
         }}
         > 
           {!isFavorite && <Heart size={20} className='hover:fill-red-500 hover:text-red-500' />}
-					{isFavorite && <Heart size={20} className='fill-red-500 text-red-500' />}
+					{isFavorite && <Heart size={20} className='fill-red-500 text-red-500' />} {/*to keep the icon red if it's added to fav page */}
               </div>
             </Link>
             <div className="flex mt-1">

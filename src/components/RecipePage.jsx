@@ -33,6 +33,7 @@ const RecipePage = () => {
 		fetchRecipes("chicken");
 	}, []);
 
+	//to handle search function
   const handelSearchRecipe = (e) => {
     e.preventDefault();
     fetchRecipes(e.target[0].value); 
@@ -47,7 +48,7 @@ const RecipePage = () => {
    
     <div className='bg-[#faf9fb] p-10 flex-1'>
 			<div className='max-w-screen-lg mx-auto'>
-				<form onSubmit={handelSearchRecipe}>
+				<form onSubmit={handelSearchRecipe}> {/*to handle seach function on submitting*/}
 					<label className='input shadow-md flex items-center gap-2 '>
 						<Search size={24} />
 						<input
@@ -67,12 +68,12 @@ const RecipePage = () => {
 
          {!loading &&
 						recipes.map(({ recipe }, index) => (
-							<RecipeCard key={index} recipe={recipe} {...getRandomColor()} />
+							<RecipeCard key={index} recipe={recipe} {...getRandomColor()} /> // to fetch the recipes if it's loaded
 						))}
 
-         {loading &&
-					[...Array(9)].map((_, index) => (
-							<div key={index} className='flex flex-col gap-4 w-full'>
+         {loading &&                                                                        // to fetch the skeleton if it's not loaded yet
+					[...Array(9)].map((_, index) => ( 
+							<div key={index} className='flex flex-col gap-4 w-full'>  
 								<div className='skeleton h-32 w-full'></div>
 								<div className='flex justify-between'>
 									<div className='skeleton h-4 w-28'></div>

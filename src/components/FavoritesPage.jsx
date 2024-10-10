@@ -2,7 +2,7 @@ import  Sidebar from "./Sidebar"
 import RecipeCard from "./RecipeCard"
 import { getRandomColor } from "../lib/randomFunc"
  const FavoritesPage = ({ fetchRecipes }) => {
-	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+	const favorites = JSON.parse(localStorage.getItem("favorites")) || []; 
 
 
    return (

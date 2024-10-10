@@ -2,7 +2,7 @@ import { ListFilterIcon } from 'lucide-react'
 import React from 'react'
 
 const CategoryForMobile = ({ fetchRecipes }) => {
-
+// to handle filter by category on mobile
       const handleCategoryRecipe = (e) => {
       fetchRecipes(e.target.getAttribute("data-value"));
       

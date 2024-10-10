@@ -1,4 +1,6 @@
 import { ListFilterIcon } from "lucide-react"
+
+// to handle the category filter
 const RecipeCategory = ({ fetchRecipes }) => {
   const handleCategoryRecipe = (e) => {
       fetchRecipes(e.target.value);
