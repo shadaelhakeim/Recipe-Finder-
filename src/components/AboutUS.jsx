@@ -41,11 +41,9 @@ const AboutUs = () => {
               We’re more than just a recipe app. Cookie App is a community of passionate food lovers, and we invite you to be a part of it. 
               Whether you're here to explore new recipes or share your own, we’re excited to help you on your culinary adventure.
             </p>
-            <Link to="/signup">
               <button className="mt-6 px-5 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600">
                 Join the Community
               </button>
-            </Link>
           </div>
         </div>
       </div>

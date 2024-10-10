@@ -85,12 +85,31 @@ outline: none;
   font-size: small;
   animation: circleRotate 20s linear infinite;
 }
+.content-home{
+animation: move 1s ;
+transition: all 4s ease-in-out ;
+}
 
 
 @keyframes circleRotate {
   to {
     transform: translate(-50%, -50%) rotate(calc(var(--rotate) + 360deg));
   }
+}
+@keyframes move{
+0% {
+  opacity: 0;
+} 
+50%{
+opacity: 0.5;
+} 
+75%{
+  opacity: 0.8;
+}
+100%{
+  opacity: 1;
+}
+
 }
 @media (min-height: 1024px) and (max-height: 2652px) {
   .circle{

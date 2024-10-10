@@ -71,8 +71,8 @@ const HomePage = () => {
                   </Link>
         </div>  
         <div>
-          <button onClick={handlePrev} className='slider absolute top-2/4 -translate-y-1/2 w-10 h-10 rounded-[50%] bg-[#eee5] text-white text-xl cursor-pointer z-20 ml-5 left-[5%]'>&lt; </button>
-          <button onClick={handleNext} className='slider absolute top-2/4 -translate-y-1/2 w-10 h-10 rounded-[50%] bg-[#eee5] text-white text-xl cursor-pointer z-20 ml-5 right-[5%]'>&gt; </button>
+          <button onClick={handlePrev} className='slider absolute top-2/4 -translate-y-1/2 w-10 h-10 rounded-[50%] bg-[#2f2f2f55] text-white text-xl cursor-pointer z-20 ml-5 left-[5%]'>&lt; </button>
+          <button onClick={handleNext} className='slider absolute top-2/4 -translate-y-1/2 w-10 h-10 rounded-[50%] bg-[#2f2f2f55] text-white text-xl cursor-pointer z-20 ml-5 right-[5%]'>&gt; </button>
         </div>
 
           </div>
