@@ -16,7 +16,7 @@ const AboutUs = () => {
 
           <div className="flex justify-center space-x-6">
             <div className="w-full lg:w-1/3">
-              <img src="/public/2.png" alt="Our Team"  />
+              <img src="/2.png" alt="Our Team"  />
             </div>
             <div className="w-full lg:w-1/2 text-left">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>

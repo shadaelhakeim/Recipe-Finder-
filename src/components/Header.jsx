@@ -8,7 +8,7 @@ const Header = () => {
   <div className="dropdown ">
   <div className='flex justify-end lg:justify-center'>
      <Link to="/Home">
-     <img src="/public/detailsPage-logo.png" alt="logo" className='w-3/5 lg:w-[16%] mt-1 inline-block' />
+     <img src="/detailsPage-logo.png" alt="logo" className='w-3/5 lg:w-[16%] mt-1 inline-block' />
     </Link>
 
      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden flex justify-end self-end w-2/4">

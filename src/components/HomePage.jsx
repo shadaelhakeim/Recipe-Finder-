@@ -6,7 +6,8 @@ const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(0); 
   const circleRef = useRef(null);
 
-  const images = ["/public/1.png", "/public/2.png", "/public/3.png", "/public/4.png", "/public/5.png"]; 
+const images = ["/1.png", "/2.png", "/3.png"];
+
 
   useEffect(() => {
     // Circle text logic
