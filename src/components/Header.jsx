@@ -7,7 +7,7 @@ const Header = () => {
   <div className='lg:w-[90%] lg:mx-auto lg:my-0'>
   <div className="dropdown ">
   <div className='flex justify-end lg:justify-center'>
-     <Link to="/Home">
+     <Link to="/">
      <img src="/detailsPage-logo.png" alt="logo" className='w-3/5 lg:w-[16%] mt-1 inline-block' />
     </Link>
 
@@ -29,7 +29,7 @@ const Header = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-30 mt-3 w-52 p-2 shadow content-between right-0 top-11 h-36">
-                          <Link to={"/Home"}>
+                          <Link to={"/"}>
                               <div className='flex '>
                               <Home size={16} className='mr-2 self-center'/>
                                   <li className='font-bold text-orange-500 py-1'><a className='text-[20px]'>Home</a></li>
@@ -52,7 +52,7 @@ const Header = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 text-[18px]">
-                  <Link to={"/Home"}>
+                  <Link to={"/"}>
                   <li className='font-bold text-orange-500'><a>Home</a></li>
                   </Link>
                   <Link to={"/Recipes"}>

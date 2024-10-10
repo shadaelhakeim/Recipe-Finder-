@@ -25,7 +25,7 @@ const DesktopSidebar = ({ fetchRecipes }) => {
         
         <ul className="flex flex-col items-center md:items-start gap-8">
 
-          <Link to={"/Home"} className="flex gap-1">
+          <Link to={"/"} className="flex gap-1">
           <HomeIcon size={24} />
             <span className="font-bold hidden md:block">Home</span>
           </Link>
@@ -58,7 +58,7 @@ const DesktopSidebar = ({ fetchRecipes }) => {
 const MobileSidebar = () => {
   return (
     <div className="flex justify-center gap-10  border-t fixed w-full bottom-0 left-0 bg-white z-10 p-2 sm:hidden">
-     <Link to={"/Home"}>
+     <Link to={"/"}>
         <HomeIcon size={24} className="cursor-pointer" />
       </Link>  
       <Link to={"/Recipes"} className="flex gap-1">
