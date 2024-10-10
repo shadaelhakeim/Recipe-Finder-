@@ -78,7 +78,7 @@ const RecipeDetails = () => {
       </div>        
         <div className=''>
         <h2 className='font-bold text-2xl mb-4 mt-6'>Watch Full Recipe on This Link</h2>
-       <a href={recipe.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-[13px] md:text-lg ">
+       <a href={recipe.url}  rel="noopener noreferrer" className="text-blue-500 text-[13px] md:text-lg ">
         Recipe Source: {recipe.url}
         </a>
         </div>

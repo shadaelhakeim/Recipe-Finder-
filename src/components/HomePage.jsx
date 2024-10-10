@@ -45,7 +45,7 @@ const images = ["/1.png", "/2.png", "/3.png"];
     <div>
       <Header />
       <div className='mainbg h-[80vh] lg:h-[130vh] overflow-hidden relative'>
-        <div className='content-home flex absolute w-max h-full justify-start items-center  top-[-10%] left-[1%] lg:top-[-6%] lg-left-[0] '>
+        <div className='content-home flex absolute w-max h-full justify-start items-center  top-[-10%] left-[1%] lg:top-[-5%] lg-left-[0] '>
 
           <div className='imgs text-center rotate-45'>
             <img src={images[getIndex(activeIndex - 1)]} className='imgh w-[90%]' alt="Recipe" />
