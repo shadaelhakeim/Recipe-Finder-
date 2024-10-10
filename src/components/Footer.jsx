@@ -3,12 +3,12 @@ import React from 'react'
 
 const Footer = () => {
   return (
-<footer className="footer footer-center bg-base-200 text-base-content rounded p-10 ">
+<footer className="footer footer-center bg-white text-base-content rounded p-10 ">
   <nav className="grid grid-flow-col gap-4">
+    <a className="link link-hover">Home</a>
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Recipes</a>
-    <a className="link link-hover">Favorites</a>
   </nav>
   <nav>
     <div className="grid grid-flow-col gap-4">
@@ -48,7 +48,7 @@ const Footer = () => {
     </div>
   </nav>
   <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by  <span className='font-bold'>Shada Elhakeim</span><Heart className='fill-red-600 inline-block ml-1' size={16}/> </p>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by  <span className='font-bold'>Cookie</span><Heart className='fill-orange-500 inline-block ml-1' size={16}/> </p>
   </aside>
 </footer>
   )

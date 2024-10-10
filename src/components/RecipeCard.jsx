@@ -29,7 +29,7 @@ const addRecipeToFavorites = () => {
   
   return (
    <div className={`flex flex-col rounded-md ${bg} overflow-hidden p-3 relative`}>
-           <Link to={`/recipe/${recipeId}`} target="_blank" className="h-32 relative">
+           <Link to={`/recipe/${recipeId}`} target="_blank" className="h-40 lg:h-[23] relative">
               <img 	src={recipe.image} alt="recipe img" className="rounded-md w-full h-full object-cover cursor-pointer" />
               <div className="absolute bottom-2 left-2 bg-white rounded-full p-1 
               cursor-pointer flex items-center gap-1 text-sm">

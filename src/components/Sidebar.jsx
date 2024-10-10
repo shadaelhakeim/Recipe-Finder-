@@ -1,4 +1,4 @@
-import { ForkKnifeCrossedIcon, Heart, HomeIcon } from "lucide-react"
+import { ForkKnifeCrossedIcon, Heart, HomeIcon, Info } from "lucide-react"
 import { Link } from "react-router-dom"
 import RecipeCategory from "./RecipeCategory"
 
@@ -15,7 +15,7 @@ export default Sidebar
 
 const DesktopSidebar = ({ fetchRecipes }) => {
   return (
-      <div className="pl-3 md:p-10  border-r min-h-screen w-28 md:w-64 hidden sm:block ">
+      <div className="pl-3 md:p-10  border-r min-h-screen w-28 md:w-64 hidden md:block ">
       <div className="flex flex-col gap-16 left-0 top-10 sticky">
         
         <div className='w-full flex justify-center'>
@@ -30,7 +30,7 @@ const DesktopSidebar = ({ fetchRecipes }) => {
             <span className="font-bold hidden md:block">Home</span>
           </Link>
 
-          <Link to={"/Home"} className="flex gap-1">
+          <Link to={"/Recipes"} className="flex gap-1">
             <ForkKnifeCrossedIcon size={24}  className="hover:fill-orange-500" />
             <span className="font-bold hidden md:block">Recipes</span>
           </Link>
@@ -38,6 +38,10 @@ const DesktopSidebar = ({ fetchRecipes }) => {
           <Link to={"/Favorites"} className="flex gap-1">
             <Heart size={24}  className="hover:fill-red-500" />
             <span className="font-bold hidden md:block">Favorites</span>
+          </Link>
+          <Link to={"/About"} className="flex gap-1">
+            <Info size={24}  className="hover:fill-gray-200" />
+            <span className="font-bold hidden md:block">About us</span>
           </Link>
 
         </ul>
@@ -57,7 +61,7 @@ const MobileSidebar = () => {
      <Link to={"/Home"}>
         <HomeIcon size={24} className="cursor-pointer" />
       </Link>  
-      <Link to={"/Home"} className="flex gap-1">
+      <Link to={"/Recipes"} className="flex gap-1">
             <ForkKnifeCrossedIcon size={24}  className="hover:fill-orange-500" />
       </Link>
       <Link to={"/Favorites"}>

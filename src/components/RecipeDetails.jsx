@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getRandomColor } from '../lib/randomFunc';
-import RecipeCard from "./RecipeCard"
 import Header from './Header';
+import Footer from './Footer';
 import { MoveLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 const APP_ID = import.meta.env.VITE_APP_ID;
@@ -39,12 +38,12 @@ const RecipeDetails = () => {
     <Header />  
     <div className='md:p-[70px] p-[25px] block relative back-g'>
     <div className='md:px-12 py-10 mx-auto my-0 bg-[#F9EFE1] content  '>
-    <Link to={"/Home"}>
+    <Link to={"/Recipes"}>
     <MoveLeft  size={24} className='bg-orange-300 rounded-full w-10 h-10 p-2 hover:bg-white cursor-pointer inline-block ml-4 md:block '/>
     </Link>
-    <div className="p-6 flex flex-wrap flex-col lg:flex-row md:flex-nowrap ">
-    <div className='flex flex-col px-9'>
-    <h1 className="font-bold text-[1.85rem] md:text-4xl  pb-10 ">{recipe.label}</h1>
+    <div className="p-6 flex flex-wrap flex-col lg:flex-row lg:flex-nowrap  ">
+    <div className='flex flex-col px-9 self-start'>
+    <h1 className="font-bold text-[1.85rem] md:text-4xl w-[223px] lg:w-full pb-10 ">{recipe.label}</h1>
     <img src={recipe.image} alt={recipe.label} className="rounded-md mr-12 mb-4 h-fit w-[420px]" />
                             </div>
                     <div>
@@ -61,7 +60,7 @@ const RecipeDetails = () => {
                         <p className='capitalize'>{recipe.calories}</p>
                         </div>
                         <p className='mr-2 font-bold mb-2'>Ingredients:</p>
-        <ul>
+        <ul className='w-80 lg:w-full'>
           {recipe.ingredientLines.map((ingredient, idx) => (
             <li key={idx}>{ingredient}</li>
           ))}
@@ -86,7 +85,8 @@ const RecipeDetails = () => {
           </div>
                 </div>
                 </div>
-                </div>
+            </div>
+            <Footer />
             </>
   );
 };

@@ -1,96 +1,90 @@
-import { Search } from "lucide-react"
-import RecipeCard from "./RecipeCard"
-import { useEffect, useState } from "react"
-import { getRandomColor } from "../lib/randomFunc"
-import Sidebar from "./Sidebar";
-import CategoryForMobile from "./CategoryForMobile";
-const APP_ID = import.meta.env.VITE_APP_ID;
-const APP_KEY = import.meta.env.VITE_APP_KEY;
-const Home = () => {
-  const [recipes, setRecipes] = useState([]);
-	const [loading, setLoading] = useState(true);
+import React, { useEffect, useRef, useState } from 'react';
+import Header from './Header';
+import { Link } from 'react-router-dom';
+import Footer from './Footer';
+const HomePage = () => {
+  const [activeIndex, setActiveIndex] = useState(0); 
+  const circleRef = useRef(null);
 
-	const fetchRecipes = async (searchQuery) => {
-		setLoading(true);
-		setRecipes([]);
-		try {
-			const res = await fetch(
-				`https://api.edamam.com/api/recipes/v2?app_id=${APP_ID}&app_key=${APP_KEY}&q=${searchQuery}&type=public`
+  const images = ["/public/1.png", "/public/2.png", "/public/3.png", "/public/4.png", "/public/5.png"]; 
 
-			);
-      const data = await res.json();
-      setRecipes(data.hits);
-      console.log(data.hits);
-		} catch (error) {
-			console.log(error.message);
-		} finally {
-			setLoading(false);
-		}
-	};
+  useEffect(() => {
+    // Circle text logic
+    const textCircle = circleRef.current.innerText.split('');
+    circleRef.current.innerText = '';
+    textCircle.forEach((value, key) => {
+      const newSpan = document.createElement("span");
+      newSpan.innerText = value;
+      const rotateThisSpan = (360 / textCircle.length) * (key + 1);
+      newSpan.style.setProperty('--rotate', rotateThisSpan + 'deg');
+      circleRef.current.appendChild(newSpan);
+    });
+  }, []);
 
-	useEffect(() => {
-		fetchRecipes("chicken");
-	}, []);
+  // Helper function to handle circular index values
+  const getIndex = (index) => {
+    if (index < 0) {
+      return images.length - 1; // Loop back to last image
+    }
+    if (index >= images.length) {
+      return 0; // Loop back to first image
+    }
+    return index;
+  };
 
-  const handelSearchRecipe = (e) => {
-    e.preventDefault();
-    fetchRecipes(e.target[0].value); 
-    e.target[0].value = '';
-  }
-  
+  // Function to go to the next image
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => getIndex(prevIndex + 1));
+  };
+
+  // Function to go to the previous image
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) => getIndex(prevIndex - 1));
+  };
+
   return (
-    
-	  <>
-		  <div className="flex">
-    <Sidebar fetchRecipes={fetchRecipes} />
-   
-    <div className='bg-[#faf9fb] p-10 flex-1'>
-			<div className='max-w-screen-lg mx-auto'>
-				<form onSubmit={handelSearchRecipe}>
-					<label className='input shadow-md flex items-center gap-2 '>
-						<Search size={24} />
-						<input
-							type='text'
-							className='text-sm md:text-md grow'
-							placeholder='What do you want to cook today?'
-						/>
-					</label>
-				</form>
+    <div>
+      <Header />
+      <div className='mainbg h-[80vh] lg:h-[130vh] overflow-hidden relative'>
+        <div className='content-home flex absolute w-max h-full justify-start items-center  top-[-10%] left-[1%] lg:top-[-6%] lg-left-[0] '>
+          {/* Previous Image */}
+          <div className='imgs text-center rotate-45'>
+            <img src={images[getIndex(activeIndex - 1)]} className='imgh w-[90%]' alt="Recipe" />
+          </div>
 
-				<h1 className='font-bold text-3xl md:text-5xl mt-4'>Recommended Recipes</h1>
-          <p className='text-slate-500 font-semibold ml-1 my-2 text-sm tracking-tight'>Popular choices</p>
-          
-          <CategoryForMobile fetchRecipes={fetchRecipes} />
-        
-        <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {/* Active Middle Image */}
+          <div className='imgs text-center rotate-45'>
+            <img src={images[activeIndex]} className='imgh w-[90%]' alt="Recipe" />
+          </div>
 
-         {!loading &&
-						recipes.map(({ recipe }, index) => (
-							<RecipeCard key={index} recipe={recipe} {...getRandomColor()} />
-						))}
-
-         {loading &&
-					[...Array(9)].map((_, index) => (
-							<div key={index} className='flex flex-col gap-4 w-full'>
-								<div className='skeleton h-32 w-full'></div>
-								<div className='flex justify-between'>
-									<div className='skeleton h-4 w-28'></div>
-									<div className='skeleton h-4 w-24'></div>
-								</div>
-								<div className='skeleton h-4 w-1/2'></div>
-							</div>
-						))}
-         
-          
-         
+          {/* Next Image */}
+          <div className='imgs text-center rotate-45'>
+            <img src={images[getIndex(activeIndex + 1)]} className='imgh w-[90%]' alt="Recipe" />
+          </div>
         </div>
-      </div>
-      
-      </div>
-      </div>
-    </>
-    
-  )
-}
 
-export default Home
+        {/* Circle Text */}
+        <div className='circle absolute top-[-23%;] lg:top-[-9rem] left-0 w-full h-[125%] lg:h-[121%]' ref={circleRef}>
+          Cookie Recipes-Discover, Cook, Share- Your Culinary Adventure Starts Here!
+        </div>
+
+        {/* Carousel Navigation */}
+        <div className='absolute bottom-[15%] md:bottom-[10%] lg:bottom-[9%] left-2/4 -translate-x-1/2 text-center text-white w-max'>
+          <p className='text-left uppercase translate-y-5'>Cookie's</p>
+          <p className='sec-content text-7xl uppercase font-bold relative'>Recipes</p>
+                  <Link to="/Recipes">
+                            <button className='button relative -bottom-5 px-5 py-3 text-white bg-transparent rounded-3xl hover:bg-white hover:text-orange-500 hover:scale-105'>Explore Recipes</button>
+                  </Link>
+        </div>  
+        <div>
+          <button onClick={handlePrev} className='slider absolute top-2/4 -translate-y-1/2 w-10 h-10 rounded-[50%] bg-[#eee5] text-white text-xl cursor-pointer z-20 ml-5 left-[5%]'>&lt; </button>
+          <button onClick={handleNext} className='slider absolute top-2/4 -translate-y-1/2 w-10 h-10 rounded-[50%] bg-[#eee5] text-white text-xl cursor-pointer z-20 ml-5 right-[5%]'>&gt; </button>
+        </div>
+
+          </div>
+          <Footer />
+    </div>
+  );
+};
+
+export default HomePage;

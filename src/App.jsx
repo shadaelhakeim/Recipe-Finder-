@@ -1,10 +1,10 @@
 // import ThemeCustomize from "./components/themeCustomize"
-import Home from "./components/HomePage"
+import HomePage from "./components/HomePage"
 import FavoritesPage from "./components/FavoritesPage"
 import { Routes, Route } from "react-router-dom"
-import Footer from "./components/Footer"
 import RecipeDetails from "./components/RecipeDetails";
-
+import RecipePage from "./components/RecipePage";
+import AboutUs from "./components/AboutUS";
 function App() {
 
 
@@ -13,14 +13,15 @@ function App() {
       <div >
       
       <Routes>
-        <Route path="/Home" element={<Home />} />
-          <Route path="/Favorites" element={<FavoritesPage />} />
-          <Route path="/recipe/:id" element={<RecipeDetails />} /> 
+        <Route path="/Home" element={<HomePage />} />
+        <Route path="/Recipes" element={<RecipePage />} />
+        <Route path="/Favorites" element={<FavoritesPage />} />
+        <Route path="/recipe/:id" element={<RecipeDetails />} /> 
+        <Route path="/About" element={<AboutUs />} /> 
         
       </Routes>
-      {/* <ThemeCustomize /> */}
       </div>
-      <Footer />
+      
       </>
   )
 
