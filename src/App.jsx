@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom"
 import RecipeDetails from "./components/RecipeDetails";
 import RecipePage from "./components/RecipePage";
 import AboutUs from "./components/AboutUS";
+import './styles/index.css'; 
 function App() {
 
 
