@@ -65,7 +65,7 @@ const images = ["/1.png", "/2.png", "/3.png"];
         </div>
 
         <div className='absolute bottom-[15%] md:bottom-[10%] lg:bottom-[9%] left-2/4 -translate-x-1/2 text-center text-white w-max'>
-          <p className='text-left uppercase translate-y-5'>Cookie's</p>
+          <p className='text-left uppercase translate-y-4 lg:translate-y-5'>Cookie's</p>
           <p className='sec-content text-7xl uppercase font-bold relative'>Recipes</p>
                   <Link to="/Recipes">
                             <button className='button relative -bottom-5 px-5 py-3 text-white bg-transparent rounded-3xl hover:bg-white hover:text-orange-500 hover:scale-105'>Explore Recipes</button>
